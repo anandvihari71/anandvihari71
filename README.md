@@ -13,7 +13,7 @@ You can click the Preview link to take a look at your changes.
 
 Java
 ========
-**SonarQube** Configuration(you can do it by local install(jar,war file),local Docker image(its just container or you can call it as server),AWS EC2, AWS EKS Cluster, AWS ECS Managed kubernatis)
+**SonarQube** Configuration(you can do it by local install(jar,war file),local Docker image(its just container or you can call it as server),AWS EC2, AWS EKS Cluster, AWS ECS Managed kubernatis), add sonarlint plugin in IDEA Intellij for code smells and code quality
 
 **Pre-requisites**
 **a)** add jacoco and sonar-maven plugins in pom.xml
@@ -60,3 +60,21 @@ access sonar sever localhost:9000 and generate project key for each project and 
     Dsonar.token=squ_691fb98476afea71fce3476943fbe69fac683ce6 -Dsonar.coverage.jacoco.xmlReportPaths=project-directory-location/target/site/jacoco/jacoco.xml -Dsonar.java.binaries=./target/classes
 
     ii) and Env properties(KEY=VALUE;KEY:VALUE)
+
+4. In some projects raise a ticket to add your project to sonar server, platform team will take care
+5. For gitlab pipeline you just add .gitlab-ci.yml file and sonar-project.properties file along with Dockerfile
+
+**Dockerfile**
+
+FROM openjdk:17.0-jdk-oraclelinux8
+
+WORKDIR /app
+
+COPY target/project-artifactory-0.0.1-SNAPSHOT.jar /app/app.jar
+
+EXPOSE 8080
+
+CMD ["java", "-jar", "app.jar"]
+
+
+
