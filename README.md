@@ -13,7 +13,8 @@ You can click the Preview link to take a look at your changes.
 
 Java
 ========
-**SonarQube** Configuration(you can do it by local install(jar,war file),local Docker image(its just container or you can call it as server),AWS EC2, AWS EKS Cluster, AWS ECS Managed kubernatis), 
+**SonarQube** Configuration(you can do it by local install(jar,war file),local Docker image(its just container or you can call it as server),AWS EC2, AWS EKS Cluster, AWS ECS Managed kubernatis)
+
 **Pre-requisites**
 **a)** add jacoco and sonar-maven plugins in pom.xml
 <build>
