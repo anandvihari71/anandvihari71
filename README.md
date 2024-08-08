@@ -77,4 +77,56 @@ EXPOSE 8080
 CMD ["java", "-jar", "app.jar"]
 
 
+Multi module Project Structure
+Parent project
+ child project svc
+	src
+	target
+	pom.xml
+ child bdd componet test
+	src
+	target
+	pom.xml
+in root directory
+.gitlab-ci.yml
+pom.xml
+sonar-project.properteis
+Dockerfile
+Jenkinsfile
+DeploymentFile
+
+
+parent pom.xml
+<profiles>
+    <profile>
+      <id>app</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <modules>
+        <module>child-svc</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>component-test</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <modules>
+        <module>child-component-test</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>all</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <modules>
+        <module>child-svc</module>
+        <module>child-component-test</module>
+      </modules>
+    </profile>
+  </profiles>
+
+
 
