@@ -148,3 +148,12 @@ Deployment: Deploy the application-svc microservice in your Kubernetes cluster.
 Version Control: Deploy version 0.1.0 of the application-svc Helm chart, allowing you to easily track and manage application versions.
 Namespace Management: The application-svc namespace isolates the resources of this service from others, improving organization and preventing conflicts.
 Make sure that the application-svc namespace exists in your cluster, or create it using kubectl create namespace application-svc before running the Helm install command.
+
+
+
+
+@RestController for controllers @ControllerAdvice for (service, repo's)
+Option 2: Use a Global Exception Handler with @ControllerAdvice
+If you still want to use a global exception handler, even without controllers, you can do so by creating a @ControllerAdvice class that handles exceptions. This is more common in web applications where exceptions need to be translated into HTTP responses.
+
+However, if you’re working in a non-web application or just handling services, you might want to handle exceptions locally or use a custom exception handler that doesn’t rely on Spring’s MVC infrastructure.
