@@ -127,6 +127,24 @@ parent pom.xml
       </modules>
     </profile>
   </profiles>
+**How to install helmcharts in aws eks cluster**
 
+helm install application-svc application-svc-chart-0.1.0.tgz -n application-svc
 
+Detailed Explanation:
+helm install: This is the Helm command to install or deploy a Helm chart, which is a package containing all the Kubernetes resources needed for an application.
 
+application-svc: This is the name you are assigning to the Helm release. By naming the release application-svc, you can manage this deployment later with Helm commands (e.g., upgrade, rollback).
+
+application-svc-chart-0.1.0.tgz: This is the path to the Helm chart package for application-svc. The .tgz file contains all the necessary templates and configuration for deploying the application. The version 0.1.0 in the file name indicates that this is the first version of the chart.
+
+-n application-svc: This flag specifies that the Helm release should be installed in the application-svc namespace in your Kubernetes cluster. Namespaces help organize and isolate resources within the cluster.
+
+What Happens When You Run This Command?
+Helm reads the application-svc-chart-0.1.0.tgz chart package and deploys the resources defined within it to the application-svc namespace in your Kubernetes cluster.
+The deployment is registered as a Helm release named application-svc, allowing you to manage this deployment with Helm commands in the future.
+Example Use Cases:
+Deployment: Deploy the application-svc microservice in your Kubernetes cluster.
+Version Control: Deploy version 0.1.0 of the application-svc Helm chart, allowing you to easily track and manage application versions.
+Namespace Management: The application-svc namespace isolates the resources of this service from others, improving organization and preventing conflicts.
+Make sure that the application-svc namespace exists in your cluster, or create it using kubectl create namespace application-svc before running the Helm install command.
