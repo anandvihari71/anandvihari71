@@ -157,3 +157,11 @@ Option 2: Use a Global Exception Handler with @ControllerAdvice
 If you still want to use a global exception handler, even without controllers, you can do so by creating a @ControllerAdvice class that handles exceptions. This is more common in web applications where exceptions need to be translated into HTTP responses.
 
 However, if you’re working in a non-web application or just handling services, you might want to handle exceptions locally or use a custom exception handler that doesn’t rely on Spring’s MVC infrastructure.
+
+how to get namespace of pods
+kubectl get pods --all-namespaces | grep <pod-name>
+kubectl get namespaces   (to list all add s at the end)
+kubectl config current-context       (will give arn of cluster details, in which cluster your in)
+
+helm install <release-name> leader-svc-chart-0.1.0.tgz -n <namespace-name>
+application-svc is release-name, first create  namespace
