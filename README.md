@@ -165,3 +165,13 @@ kubectl config current-context       (will give arn of cluster details, in which
 
 helm install <release-name> leader-svc-chart-0.1.0.tgz -n <namespace-name>
 application-svc is release-name, first create  namespace
+
+to push deployment file to VM(keep both files in same directory)
+scp -i MPS-EKS-CLuster-VM.pem query-svc-waveform-chart-0.1.0.tgz ec2-user@54.25.160.06:~/sink-query/query-svc-waveform
+
+kubectl create namaspace <namespacename>
+kubectl create namaspace sink-query-test
+helm install query-svc-waveform query-svc-waveform-chart-0.1.0.tgz -n sink-query-test
+
+how do you check logs of a pod
+kubectl describe pod <pod-name> -n <namespace-name>
